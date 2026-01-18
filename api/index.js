@@ -1,24 +1,29 @@
 const express = require('express');
+const path = require('path');
+
 const app = express();
 
-// Middleware untuk baca JSON body
+// Middleware JSON
 app.use(express.json());
 
-// Route GET
+// 🔥 STATIC FILES
+app.use(express.static(path.join(__dirname, '../public')));
+
+// API GET
 app.get('/api/hello', (req, res) => {
   res.json({
     message: 'Hello from Express API 🚀'
   });
 });
 
-// Route POST
+// API POST
 app.post('/api/hello', (req, res) => {
   res.json({
     received: req.body
   });
 });
 
-// Start server
+// Start server (LOCAL)
 const PORT = 3000;
 app.listen(PORT, () => {
   console.log(`Express API running at http://localhost:${PORT}`);
