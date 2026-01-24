@@ -14,7 +14,7 @@ app.use(cors({
   credentials: false
 }))
 
-app.use('/', require('./routers'));
+app.use('/', require('./routes/router'));
 app.get('/', (req, res) => {
   res.sendFile(__dirname + '/public/index.html')
 })
